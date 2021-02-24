@@ -39,3 +39,17 @@
        grid-template-columns: 1fr 1fr;
     }
 }
+
+@media (min-width:60em){
+    .container{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    #broken{
+        grid-row: 1 / span 3;
+        grid-column-start: 3;
+    }
+
+    
+}

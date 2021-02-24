@@ -5,11 +5,11 @@
 .container{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 3fr 7fr 1fr 1fr;
+    grid-template-rows: 2fr 6fr 1fr 1fr;
     background-image: url("https://images.pexels.com/photos/1120162/pexels-photo-1120162.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 }
 
-div{
+.container > div{
     border: 2px solid black;
     width:100%;
     
@@ -21,8 +21,9 @@ div{
     text-align: center;
     text-transform: uppercase;
     grid-column: 1 / span 2;
-    display:grid;
-    align-items: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .date{
@@ -68,6 +69,45 @@ div{
     text-align: center;
 }
 
+.info{
+    visibility: hidden;
+}
+
+
+@media (min-width: 60em){
+ 
+    .container{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+        grid-template-rows: 8fr 3fr 2fr;
+    }
+
+    .title{
+        grid-column: 1 / span 3;
+        flex-direction: column-reverse;
+        justify-content: center;
+        
+    }
+
+    .qr{
+        grid-column: 4 / span 2;
+        grid-row: 1 / span 4;
+    }
+
+    .qr img{
+        padding: 2em;
+    }
+
+    .price{
+        grid-column: 3 / 4;
+    }
+
+    .info{
+        grid-column: 1/ span 3;
+        text-align:center;
+        visibility: visible;
+    }
+
+}
 
 
 

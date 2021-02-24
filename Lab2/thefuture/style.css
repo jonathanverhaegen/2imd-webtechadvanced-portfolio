@@ -6,10 +6,17 @@
 .container{
     display:grid;
     gap: 1em;
+    
 }
 
+.container > div{
+    display:grid;
+    align-items:center;
+}
+
+
 #homework {
-    background-color:pink;
+    background-color:#E7124E;
     text-align:center;
     width:100%;
     font-size:20px;
@@ -18,15 +25,16 @@
 }
 
 #broken {
-    background-color:blue;
+    background-color:#64FFF0;
     text-align:center;
     width:100%;
     font-size:20px;
     padding: 2em;
+    
 }
 
 #cloud {
-    background-color:yellow;
+    background-color:#FFFF0D;
     text-align:center;
     width:100%;
     font-size:20px;

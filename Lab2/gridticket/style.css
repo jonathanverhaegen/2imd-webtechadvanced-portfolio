@@ -24,6 +24,13 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
+    gap: 1em;
+    
+}
+
+.title h1,p{
+    margin:0;
+    padding:0;
 }
 
 .date{
@@ -56,6 +63,7 @@
     align-items: center;
     gap:2em;
     justify-content: center;
+    text-transform: uppercase;
     
 }
 
@@ -65,12 +73,12 @@
 }
 
 .price p{
-    
+    font-size: 1.5em;
     text-align: center;
 }
 
 .info{
-    visibility: hidden;
+    display:none;
 }
 
 
@@ -104,7 +112,9 @@
     .info{
         grid-column: 1/ span 3;
         text-align:center;
-        visibility: visible;
+        display:grid;
+        align-items: center;
+        
     }
 
 }

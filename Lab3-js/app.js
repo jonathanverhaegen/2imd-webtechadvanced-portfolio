@@ -2,6 +2,7 @@ class Note {
   constructor(title) {
     this.title = title;
     // HINT🤩 this.element = this.createElement(title);
+    
   }
 
   createElement(title) {
@@ -9,12 +10,17 @@ class Note {
 
     // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
 
+    
+
     return newNote;
   }
 
   add() {
     // HINT🤩
     // this function should append the note to the screen somehow
+
+    
+
   }
 
   saveToStorage() {
@@ -33,7 +39,7 @@ class Note {
 
 class App {
   constructor() {
-    console.log("👊🏼 The Constructor!");
+    //console.log("👊🏼 The Constructor!");
 
     // HINT🤩
     // pressing the enter key in the text field triggers the createNote function
@@ -42,6 +48,12 @@ class App {
     // read up on .bind() -> we need to pass the current meaning of this to the eventListener
     // when the app loads, we can show previously saved noted from localstorage
     // this.loadNotesFromStorage();
+
+
+    
+
+
+
   }
 
   loadNotesFromStorage() {
@@ -56,6 +68,20 @@ class App {
     // note.saveToStorage();
     // clear the text field with .reset in this class
     // if (e.key === "Enter")
+
+    if(e.key === "Enter"){
+     
+      Note.add();
+      Note.saveToStorage();
+
+      document.getElementById('#taskInput').reset();
+
+      console.log("test");
+
+
+    }
+
+
   }
 
   reset() {

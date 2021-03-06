@@ -2,6 +2,7 @@ class Note {
   constructor(title) {
     this.title = title;
     // HINT🤩 this.element = this.createElement(title);
+    console.log(this.title);
     
     
   }
@@ -16,7 +17,7 @@ class Note {
     return newNote;
   }
 
-  add() {
+  add(title) {
     // HINT🤩
     // this function should append the note to the screen somehow
     
@@ -36,6 +37,8 @@ class Note {
     // in this function, 'this' will refer to the current note element
     // .removeChild(this)
     // remove the item from screen and from localstorage
+
+    console.log("remove note");
   }
 }
 
@@ -79,7 +82,8 @@ class App {
     if(e.key === "Enter"){
       e.preventDefault();
 
-      console.log("add note")
+      let note = new Note(this.txtTodo.value);
+
       note.add();
       note.saveToStorage();
       this.reset();

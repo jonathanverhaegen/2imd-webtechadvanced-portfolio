@@ -79,6 +79,8 @@ class App {
       e.preventDefault();
 
       console.log("add note")
+
+      this.reset();
     }
 
    
@@ -88,6 +90,7 @@ class App {
 
   reset() {
     // this function should reset the form / clear the text field
+    this.txtTodo.value = "";
   }
 }
 

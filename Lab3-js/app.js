@@ -18,7 +18,8 @@ class Note {
   add() {
     // HINT🤩
     // this function should append the note to the screen somehow
-
+    
+    
     
 
   }
@@ -49,6 +50,8 @@ class App {
     // when the app loads, we can show previously saved noted from localstorage
     // this.loadNotesFromStorage();
 
+    
+
 
     
 
@@ -69,17 +72,7 @@ class App {
     // clear the text field with .reset in this class
     // if (e.key === "Enter")
 
-    if(e.key === "Enter"){
-     
-      Note.add();
-      Note.saveToStorage();
-
-      document.getElementById('#taskInput').reset();
-
-      console.log("test");
-
-
-    }
+   
 
 
   }

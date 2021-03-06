@@ -50,6 +50,9 @@ class App {
     // when the app loads, we can show previously saved noted from localstorage
     // this.loadNotesFromStorage();
 
+    this.txtTodo = document.querySelector("#taskInput");
+    this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
+
     
 
 
@@ -71,6 +74,12 @@ class App {
     // note.saveToStorage();
     // clear the text field with .reset in this class
     // if (e.key === "Enter")
+
+    if(e.key === "Enter"){
+      e.preventDefault();
+
+      console.log("add note")
+    }
 
    
 

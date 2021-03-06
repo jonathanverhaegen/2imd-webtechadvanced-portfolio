@@ -3,6 +3,7 @@ class Note {
     this.title = title;
     // HINT🤩 this.element = this.createElement(title);
     
+    
   }
 
   createElement(title) {
@@ -79,7 +80,8 @@ class App {
       e.preventDefault();
 
       console.log("add note")
-
+      note.add();
+      note.saveToStorage();
       this.reset();
     }
 

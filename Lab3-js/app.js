@@ -25,8 +25,10 @@ class Note {
     
     let list = document.querySelector("#taskList");
     let node = document.createTextNode(this.title);
-    list.appendChild(node);
-
+    let newNote = document.createElement("li");
+    
+    list.appendChild(newNote);
+    newNote.appendChild(node);
     
     
    

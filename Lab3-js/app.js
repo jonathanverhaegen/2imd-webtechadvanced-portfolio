@@ -2,7 +2,7 @@ class Note {
   constructor(title) {
     this.title = title;
     // HINT🤩 this.element = this.createElement(title);
-    //this.element = this.createElement(title);
+    
     this.element = this.createElement(title);
     
   }
@@ -12,26 +12,34 @@ class Note {
 
     // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
 
+    newNote.addEventListener("click", this.remove.bind(newNote));
     
-
     return newNote;
+
+    
   }
 
-  add(note) {
+  add() {
     // HINT🤩
     // this function should append the note to the screen somehow
     
+    let list = document.querySelector("#taskList");
+    let node = document.createTextNode(this.title);
+    list.appendChild(node);
+
     
-    console.log("add " + note);
+    
+   
+    
 
   }
 
-  saveToStorage(note) {
+  saveToStorage() {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
-    console.log("to storage " + note)
+    
   }
 
   remove() {
@@ -86,8 +94,8 @@ class App {
 
       let note = new Note(this.txtTodo.value);
 
-      note.add(this.txtTodo.value);
-      note.saveToStorage(this.txtTodo.value);
+      note.add();
+      note.saveToStorage();
       this.reset();
     }
 

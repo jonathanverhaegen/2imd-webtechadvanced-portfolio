@@ -49,7 +49,7 @@ class Note {
     let JSONnotes = JSON.stringify(notes);
 
     console.log(JSONnotes);
-    
+    localStorage.setItem("test", JSONnotes);
 
     
   }

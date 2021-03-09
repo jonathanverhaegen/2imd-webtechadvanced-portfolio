@@ -51,18 +51,22 @@ class Note {
     
     // title in var stoppen;
 
-    
-    let notes = ["test", "test2", "test3"];
-
-    //notes.push(this.title);
-
-    //console.log(notes);
-    
-
-    let JSONnotes = JSON.stringify(notes);
 
     
-    localStorage.setItem("notes", JSONnotes);
+
+    
+
+    if(localStorage.getItem("notes") === null){
+      let arrayNotes = [];
+      arrayNotes.push(this.title);
+      localStorage.setItem("notes", JSON.stringify(arrayNotes));
+    }else{
+      console.log(arrayNotes);
+    }
+
+
+
+
 
   
     

@@ -4,6 +4,10 @@ class Note {
     // HINT🤩 this.element = this.createElement(title);
     
     this.element = this.createElement(title);
+
+    
+
+    
     
   }
 
@@ -45,15 +49,22 @@ class Note {
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
     
-    
+    // title in var stoppen;
 
-    let notes = ["test1", "test2", "test3"];
+    
+    let notes = ["test", "test2", "test3"];
+
+    //notes.push(this.title);
+
+    //console.log(notes);
+    
 
     let JSONnotes = JSON.stringify(notes);
 
     
-    localStorage.setItem("test", JSONnotes);
+    localStorage.setItem("notes", JSONnotes);
 
+  
     
 
     
@@ -91,6 +102,7 @@ class App {
 
     this.txtTodo = document.querySelector("#taskInput");
     this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
+    this.loadNotesFromStorage();
 
     
 
@@ -105,10 +117,29 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
 
-    let array = JSON.parse(localStorage.getItem("test"));
+    let arrayNotes = JSON.parse(localStorage.getItem("notes"));
 
-    console.log(array);
+    
+
+
+    for(let i = 0; i<arrayNotes.length;i++){
+
+      let newNote = document.createElement("li");
+      let list = document.querySelector("#taskList");
+      let node = document.createTextNode(arrayNotes[i]);
+      list.appendChild(newNote);
+      newNote.appendChild(node)
+
+    }
    
+
+    
+    
+    
+    
+    
+    
+    
 
     
     
@@ -131,7 +162,7 @@ class App {
 
       note.add();
       note.saveToStorage();
-      this.loadNotesFromStorage();
+      
       this.reset();
     }
 

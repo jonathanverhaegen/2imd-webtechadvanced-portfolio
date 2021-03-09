@@ -29,6 +29,9 @@ class Note {
     
     list.appendChild(newNote);
     newNote.appendChild(node);
+
+
+    
     
     
    
@@ -41,6 +44,13 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
+    let notes = ["test1", "test2", "test3"];
+
+    let JSONnotes = JSON.stringify(notes);
+
+    console.log(JSONnotes);
+    
+
     
   }
 
@@ -49,6 +59,12 @@ class Note {
     // in this function, 'this' will refer to the current note element
     // .removeChild(this)
     // remove the item from screen and from localstorage
+
+    console.log("test");
+    
+
+    
+    
 
     
   }

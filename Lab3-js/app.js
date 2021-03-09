@@ -61,7 +61,12 @@ class Note {
       arrayNotes.push(this.title);
       localStorage.setItem("notes", JSON.stringify(arrayNotes));
     }else{
-      console.log(arrayNotes);
+      
+      let arrayNotes = JSON.parse(localStorage.getItem("notes"));
+      arrayNotes.push(this.title);
+      let jsonNotes = JSON.stringify(arrayNotes);
+      localStorage.setItem("notes", jsonNotes);
+
     }
 
 

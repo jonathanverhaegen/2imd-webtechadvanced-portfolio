@@ -35,15 +35,15 @@ class App{
             let temp = json.main.temp;
             
 
-            app.showWeater(temp);
+            app.textAd(temp);
         })
 
     }
 
 
-    showWeater(temp){
+    textWeater(temp){
 
-        let number = Math.floor(Math.random() * 6) + 1 
+        
 
         
 
@@ -52,20 +52,33 @@ class App{
            
             
 
-            let text = `Ooh it is ${temp} °c today. That is very cold. Stay inside and watch star wars`;
-            document.querySelector("h1").innerHTML = text;
-            app.getMovie(number);
+            let text = `Ooh it is ${temp} °c today. That is very cold. Stay inside and watch Star Wars: `;
+            return text;
+            
             
             
         }else{
 
            
 
-            let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch star wars`;
-            document.querySelector("h1").innerHTML = text;
+            let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch Star Wars: `;
             
+            return text
             
         }
+    }
+
+
+    textAd(temp){
+
+        let text = app.textWeater(temp);
+
+        
+
+        app.getMovie(text);
+
+
+
     }
 
     //function yodatranslate skip for now, better api search
@@ -73,7 +86,10 @@ class App{
 
     //functie voor film op te vragen
 
-    getMovie(number){
+    getMovie(text){
+
+        let number = Math.floor(Math.random() * 6) + 1 
+
         let url = `https://swapi.dev/api/films/${number}/`
 
         fetch(url).then((response) =>{
@@ -81,12 +97,20 @@ class App{
         }).then((json) =>{
             
             let movie = json.title;
-            console.log(movie);
+            
+
+            app.showAd(text, movie);
             
 
         })
 
         
+    }
+
+    showAd(text, movie){
+
+        document.querySelector("h1").innerHTML = text + movie;
+
     }
 
     

@@ -43,17 +43,28 @@ class App{
 
     showWeater(temp){
 
+        let number = Math.floor(Math.random() * 6) + 1 
+
+        
 
         if(temp < 15){
+
+           
+            
+
             let text = `Ooh it is ${temp} °c today. That is very cold. Stay inside and watch star wars`;
             document.querySelector("h1").innerHTML = text;
-            //app.translateYoda(text);
-            app.getMovie();
+            app.getMovie(number);
+            
+            
         }else{
+
+           
+
             let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch star wars`;
             document.querySelector("h1").innerHTML = text;
-            //app.translateYoda(text);
-            app.getMovie();
+            
+            
         }
     }
 
@@ -62,15 +73,23 @@ class App{
 
     //functie voor film op te vragen
 
-    getMovie(){
-        let url = `https://swapi.dev/api/films`
+    getMovie(number){
+        let url = `https://swapi.dev/api/films/${number}/`
 
         fetch(url).then((response) =>{
             return response.json();
         }).then((json) =>{
-            console.log(json);
+            
+            let movie = json.title;
+            console.log(movie);
+            
+
         })
+
+        
     }
+
+    
 
     
 

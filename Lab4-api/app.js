@@ -43,19 +43,38 @@ class App{
 
     showWeater(temp){
 
-        
 
         if(temp < 15){
             let text = `Ooh it is ${temp} °c today. That is very cold. Stay inside and watch star wars`;
             document.querySelector("h1").innerHTML = text;
+            //app.translateYoda(text);
+            app.getMovie();
         }else{
             let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch star wars`;
             document.querySelector("h1").innerHTML = text;
+            //app.translateYoda(text);
+            app.getMovie();
         }
     }
 
-}
+    //function yodatranslate skip for now, better api search
 
+
+    //functie voor film op te vragen
+
+    getMovie(){
+        let url = `https://swapi.dev/api/films`
+
+        fetch(url).then((response) =>{
+            return response.json();
+        }).then((json) =>{
+            console.log(json);
+        })
+    }
+
+    
+
+}
 
 
 let app = new App();

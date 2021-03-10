@@ -110,12 +110,11 @@ class App{
     showAd(text, movie,temp){
 
         document.querySelector("p").innerHTML = text + movie;
-
+        temp = 25;
         if(temp < 15){
-            document.querySelector("article").style.backgroundColor = "blue";
+            document.querySelector("article").style.backgroundImage = "url(https://www.wallpapertip.com/wmimgs/3-36952_star-wars-wallpaper-hd-1080p-star-wars-planet.jpg)";
         }else{
-            document.querySelector("article").style.backgroundColor = "red";
-        }
+            document.querySelector("article").style.backgroundImage = "url(https://images.theconversation.com/files/3624/original/tatooine.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop)";
         
 
     }
@@ -123,6 +122,8 @@ class App{
     
 
     
+
+}
 
 }
 

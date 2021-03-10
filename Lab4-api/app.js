@@ -29,6 +29,9 @@ class App{
 
         let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}&units=metric`
 
+
+        
+
         
 
         if(localStorage.getItem("temp") === null){
@@ -67,7 +70,7 @@ class App{
            
             
 
-            let text = `Ooh it is ${temp} °c today. That is too cold. Stay inside and watch Star Wars: `;
+            let text = `Ooh it is ${temp} °c today. That is too cold. Stay inside and watch Star Wars `;
             return text;
             
             
@@ -76,7 +79,7 @@ class App{
 
            
 
-            let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch Star Wars: `;
+            let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch Star Wars `;
             
             return text
             
@@ -96,7 +99,7 @@ class App{
 
     }
 
-    //function yodatranslate skip for now, better api search
+    
 
 
     //functie voor film op te vragen
@@ -114,7 +117,7 @@ class App{
             let movie = json.title;
             
 
-            app.showAd(text, movie,temp);
+            app.translateYoda(text, movie,temp);
             
 
         })
@@ -122,9 +125,39 @@ class App{
         
     }
 
+
+
+    translateYoda(text, movie,temp){
+
+        let url = `https://api.funtranslations.com/translate/yoda.json?text=${text}.`
+
+        
+
+     
+        fetch(url).then((response) =>{
+            return response.json();
+        }).then((json) =>{
+            console.log(json);
+            let textYoda = json.contents.translated;
+           
+            
+
+            app.showAd(textYoda, movie,temp);
+            
+
+        })
+
+
+
+        
+
+    }
+
+
+
     showAd(text, movie,temp){
 
-        document.querySelector("p").innerHTML = text + movie;
+        document.querySelector("p").innerHTML = text + movie + " on Disney+";
         
         if(temp < 15){
             document.querySelector("article").style.backgroundImage = "url(https://www.wallpapertip.com/wmimgs/3-36952_star-wars-wallpaper-hd-1080p-star-wars-planet.jpg)";

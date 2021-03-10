@@ -1,7 +1,7 @@
 class App{
     constructor(){
         
-
+        
         this.getLocation();
 
 
@@ -40,7 +40,7 @@ class App{
             fetch(url).then((response) =>{
                 return response.json();
             }).then((json) =>{
-                let temp = json.main.temp;
+                let temp = Math.round(json.main.temp);
 
                 localStorage.setItem("temp", temp);
                 

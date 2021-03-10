@@ -33,6 +33,7 @@ class App{
             return response.json();
         }).then((json) =>{
             let temp = json.main.temp;
+            
 
             app.showWeater(temp);
         })
@@ -41,7 +42,16 @@ class App{
 
 
     showWeater(temp){
-        document.querySelector("h1").innerHTML = temp + " °c";
+
+        
+
+        if(temp < 15){
+            let text = `Ooh it is ${temp} °c today. That is very cold. Stay inside and watch star wars`;
+            document.querySelector("h1").innerHTML = text;
+        }else{
+            let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch star wars`;
+            document.querySelector("h1").innerHTML = text;
+        }
     }
 
 }

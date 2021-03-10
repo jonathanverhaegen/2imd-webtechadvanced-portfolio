@@ -29,14 +29,29 @@ class App{
 
         let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}&units=metric`
 
-        fetch(url).then((response) =>{
-            return response.json();
-        }).then((json) =>{
-            let temp = json.main.temp;
-            
+        
 
+        if(localStorage.getItem("temp") === null){
+
+
+            fetch(url).then((response) =>{
+                return response.json();
+            }).then((json) =>{
+                let temp = json.main.temp;
+
+                localStorage.setItem("temp", temp);
+                
+    
+                
+            })
+
+            
+        }else{
+            let temp = localStorage.getItem("temp");
             app.textAd(temp);
-        })
+        }
+
+        
 
     }
 
@@ -52,7 +67,7 @@ class App{
            
             
 
-            let text = `Ooh it is ${temp} °c today. That is very cold. Stay inside and watch Star Wars: `;
+            let text = `Ooh it is ${temp} °c today. That is too cold. Stay inside and watch Star Wars: `;
             return text;
             
             
@@ -110,7 +125,7 @@ class App{
     showAd(text, movie,temp){
 
         document.querySelector("p").innerHTML = text + movie;
-        temp = 25;
+        
         if(temp < 15){
             document.querySelector("article").style.backgroundImage = "url(https://www.wallpapertip.com/wmimgs/3-36952_star-wars-wallpaper-hd-1080p-star-wars-planet.jpg)";
         }else{

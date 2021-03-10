@@ -75,7 +75,7 @@ class App{
 
         
 
-        app.getMovie(text);
+        app.getMovie(text,temp);
 
 
 
@@ -86,7 +86,7 @@ class App{
 
     //functie voor film op te vragen
 
-    getMovie(text){
+    getMovie(text,temp){
 
         let number = Math.floor(Math.random() * 6) + 1 
 
@@ -99,7 +99,7 @@ class App{
             let movie = json.title;
             
 
-            app.showAd(text, movie);
+            app.showAd(text, movie,temp);
             
 
         })
@@ -107,9 +107,16 @@ class App{
         
     }
 
-    showAd(text, movie){
+    showAd(text, movie,temp){
 
-        document.querySelector("h1").innerHTML = text + movie;
+        document.querySelector("p").innerHTML = text + movie;
+
+        if(temp < 15){
+            document.querySelector("article").style.backgroundColor = "blue";
+        }else{
+            document.querySelector("article").style.backgroundColor = "red";
+        }
+        
 
     }
 

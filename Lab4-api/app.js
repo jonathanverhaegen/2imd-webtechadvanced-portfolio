@@ -32,9 +32,16 @@ class App{
         fetch(url).then((response) =>{
             return response.json();
         }).then((json) =>{
-            console.log(json);
+            let temp = json.main.temp;
+
+            app.showWeater(temp);
         })
 
+    }
+
+
+    showWeater(temp){
+        document.querySelector("h1").innerHTML = temp + " °c";
     }
 
 }

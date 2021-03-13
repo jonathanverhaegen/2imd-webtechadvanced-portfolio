@@ -57,7 +57,7 @@ class App{
                 
     
                 localStorage.setItem("temp", temp);
-                localStorage.setItem("hour", hour);
+                
                 app.textAd(); 
                 console.log("nieuw");
             })
@@ -83,7 +83,7 @@ class App{
            
             
 
-            let text = `Ooh it is ${temp} °c today. That is too cold. Stay inside and watch Star Wars - `;
+            let text = `Ooh it is ${temp} °c today. That is too cold. Stay inside and watch Star Wars`;
             return text;
             
             
@@ -92,7 +92,7 @@ class App{
 
            
 
-            let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch Star Wars - `;
+            let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch Star Wars`;
             
             return text
             
@@ -144,6 +144,7 @@ class App{
             
 
         })
+        
 
         
     }
@@ -154,23 +155,38 @@ class App{
 
         let url = `https://api.funtranslations.com/translate/yoda.json?text=${text}.`
 
-        app.showAd(text, movie, temp);
+        //app.showAd(text, movie, temp);
 
-        
+        let date = new Date();
+
+        let hourStorage = parseInt(localStorage.getItem("hour"));
+        let hourNow = date.getHours();
 
      
-        /*fetch(url).then((response) =>{
+        
+
+        if(localStorage.getItem("text") === null || hourNow < hourStorage){
+            fetch(url).then((response) =>{
             return response.json();
-        }).then((json) =>{
+            }).then((json) =>{
             console.log(json);
-            let textYoda = json.contents.translated;
+                
+                let textYoda = json.contents.translated;
+
+                localStorage.setItem("textYoda", textYoda);
+                localStorage.setItem("hour", hour);
            
+        
+                app.showAd(movie,temp);
+
+                console.log("oude tekst");
             
 
-            app.showAd(textYoda, movie,temp);
-            
-
-        })*/
+            })
+        }else{
+            app.showAd(movie,temp);
+            console.log("nieuwe tekst");
+        }
 
 
 
@@ -180,9 +196,16 @@ class App{
 
 
 
-    showAd(text, movie,temp){
+    showAd(movie,temp){
 
-        document.querySelector("p").innerHTML = text + movie + " on Disney+";
+        let textYoda = localStorage.getItem("textYoda");
+
+        document.querySelector(".yoda").innerHTML = textYoda
+
+        document.querySelector(".info").innerHTML = movie + " now streaming on Disney+";
+        
+
+        
         
         if(temp < 15){
             document.querySelector("article").style.backgroundImage = "url(https://www.wallpapertip.com/wmimgs/3-36952_star-wars-wallpaper-hd-1080p-star-wars-planet.jpg)";

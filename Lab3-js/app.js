@@ -16,7 +16,6 @@ class Note {
     let newNote = document.createElement("li");
 
     // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
-    
 
     newNote.addEventListener("click", this.remove.bind(newNote));
     
@@ -78,7 +77,7 @@ class Note {
     // remove the item from screen and from localstorage
 
     //remove from screen
-    console.log("test");
+
     let list = document.querySelector("#taskList");
 
     list.removeChild(this);
@@ -87,6 +86,29 @@ class Note {
 
 
     //remove from localStorage
+
+    let arrayNotes = JSON.parse(localStorage.getItem("notes"));
+
+    
+    let title = this.innerHTML;
+
+    let indexTitle = arrayNotes.indexOf(title);
+
+    console.log(indexTitle);
+    
+
+   
+
+   
+
+    /*for(let i = 0; i<arrayNotes.length; i++){
+      
+
+      if(arrayNotes[i] == title ){
+        
+      }
+
+    }*/
     
 
     

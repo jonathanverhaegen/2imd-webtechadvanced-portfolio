@@ -1,8 +1,9 @@
 class Note {
   constructor(title) {
-    this.title = title;
-    // HINT🤩 this.element = this.createElement(title);
     
+    // HINT🤩 this.element = this.createElement(title);
+
+    this.title = title;
     this.element = this.createElement(title);
 
     
@@ -11,7 +12,7 @@ class Note {
     
   }
 
-  createElement(title) {
+  createElement() {
     let newNote = document.createElement("li");
 
     // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
@@ -27,7 +28,7 @@ class Note {
     // HINT🤩
     // this function should append the note to the screen somehow
     
-    let list = document.querySelector("#taskList");
+    
     
     
     
@@ -49,18 +50,7 @@ class Note {
 
     
     
-    /*if(localStorage.getItem("notes") === null){
-      let arrayNotes = [];
-      arrayNotes.push(this.title);
-      localStorage.setItem("notes", JSON.stringify(arrayNotes));
-    }else{
-      
-      let arrayNotes = JSON.parse(localStorage.getItem("notes"));
-      arrayNotes.push(this.title);
-      let jsonNotes = JSON.stringify(arrayNotes);
-      localStorage.setItem("notes", jsonNotes);
-
-    }*/
+    
 
     
   }
@@ -73,9 +63,6 @@ class Note {
 
     //remove from screen
 
-    let list = document.querySelector("#taskList");
-
-    list.removeChild(this);
 
 
     //remove from localStorage
@@ -100,9 +87,7 @@ class App {
     // when the app loads, we can show previously saved noted from localstorage
     // this.loadNotesFromStorage();
 
-    this.txtTodo = document.querySelector("#taskInput");
-    this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
-    this.loadNotesFromStorage();
+    
 
     
 
@@ -117,20 +102,7 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
 
-    let arrayNotes = JSON.parse(localStorage.getItem("notes"));
-
     
-
-
-    for(let i = 0; i<arrayNotes.length;i++){
-
-      let newNote = document.createElement("li");
-      let list = document.querySelector("#taskList");
-      let node = document.createTextNode(arrayNotes[i]);
-      list.appendChild(newNote);
-      newNote.appendChild(node)
-
-    }
    
 
   }
@@ -143,15 +115,7 @@ class App {
     // clear the text field with .reset in this class
     // if (e.key === "Enter")
 
-    if(e.key === "Enter"){
-      e.preventDefault();
-
-      let note = new Note(this.txtTodo.value);
-
-      note.add();
-      note.saveToStorage();
-      
-      this.reset();
+    
     }
 
    
@@ -161,7 +125,7 @@ class App {
 
   reset() {
     // this function should reset the form / clear the text field
-    this.txtTodo.value = "";
+    
   }
 }
 

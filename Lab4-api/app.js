@@ -104,6 +104,8 @@ class App{
 
         let temp = parseInt(localStorage.getItem("temp"));
 
+       
+
 
         let text = app.textWeater(temp);
 

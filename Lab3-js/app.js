@@ -28,11 +28,10 @@ class Note {
     // this function should append the note to the screen somehow
     
     let list = document.querySelector("#taskList");
-    let node = document.createTextNode(this.title);
-    let newNote = document.createElement("li");
     
-    list.appendChild(newNote);
-    newNote.appendChild(node);
+    
+    
+    
 
 
     
@@ -49,14 +48,8 @@ class Note {
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
     
-    // title in var stoppen;
-
-
     
-
-    
-
-    if(localStorage.getItem("notes") === null){
+    /*if(localStorage.getItem("notes") === null){
       let arrayNotes = [];
       arrayNotes.push(this.title);
       localStorage.setItem("notes", JSON.stringify(arrayNotes));
@@ -67,16 +60,7 @@ class Note {
       let jsonNotes = JSON.stringify(arrayNotes);
       localStorage.setItem("notes", jsonNotes);
 
-    }
-
-
-
-
-
-  
-    
-
-    
+    }*/
 
     
   }
@@ -87,7 +71,14 @@ class Note {
     // .removeChild(this)
     // remove the item from screen and from localstorage
 
-    console.log("test");
+    //remove from screen
+
+    let list = document.querySelector("#taskList");
+
+    list.removeChild(this);
+
+
+    //remove from localStorage
     
 
     
@@ -141,18 +132,6 @@ class App {
 
     }
    
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
 
   }
 

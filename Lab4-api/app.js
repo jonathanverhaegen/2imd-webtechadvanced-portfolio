@@ -3,7 +3,7 @@ class App{
         
         
         this.getLocation();
-
+        
 
     }
 
@@ -19,6 +19,8 @@ class App{
         let lat = pos.coords.latitude;
         let lng = pos.coords.longitude;
 
+        
+
         app.getWeather(lat,lng);
         
     }
@@ -29,12 +31,24 @@ class App{
 
         let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}&units=metric`
 
+        fetch(url).then((response) =>{
+            return response.json();
+        }).then((json) =>{
+            let temp = Math.round(json.main.temp);
 
+            //localStorage.setItem("temp", temp);
+            app.textAd(temp);
+
+            
+            
+
+            
+        })
         
 
         
 
-        if(localStorage.getItem("temp") === null){
+        /*if(localStorage.getItem("temp") === null){
 
 
             fetch(url).then((response) =>{
@@ -43,6 +57,7 @@ class App{
                 let temp = Math.round(json.main.temp);
 
                 localStorage.setItem("temp", temp);
+                app.textAd(temp);
                 
     
                 
@@ -52,7 +67,7 @@ class App{
         }else{
             let temp = localStorage.getItem("temp");
             app.textAd(temp);
-        }
+        }*/
 
         
 
@@ -91,6 +106,9 @@ class App{
 
         let text = app.textWeater(temp);
 
+
+        
+
         
 
         app.getMovie(text,temp);
@@ -115,6 +133,8 @@ class App{
         }).then((json) =>{
             
             let movie = json.title;
+
+            
             
 
             app.translateYoda(text, movie,temp);
@@ -131,10 +151,12 @@ class App{
 
         let url = `https://api.funtranslations.com/translate/yoda.json?text=${text}.`
 
+        app.showAd(text, movie, temp);
+
         
 
      
-        fetch(url).then((response) =>{
+        /*fetch(url).then((response) =>{
             return response.json();
         }).then((json) =>{
             console.log(json);
@@ -145,7 +167,7 @@ class App{
             app.showAd(textYoda, movie,temp);
             
 
-        })
+        })*/
 
 
 

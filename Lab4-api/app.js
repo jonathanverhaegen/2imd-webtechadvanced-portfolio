@@ -31,10 +31,10 @@ class App{
 
         let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}&units=metric`;
 
-        let date = new Date();
+        
 
         let hourStorage = parseInt(localStorage.getItem("hour"));
-        let hourNow = date.getHours();
+        let hourNow = app.getHourNow();
 
         console.log(hourStorage);
         console.log(hourNow);
@@ -154,12 +154,10 @@ class App{
 
         let url = `https://api.funtranslations.com/translate/yoda.json?text=${text}.`
 
-        //app.showAd(text, movie, temp);
-
-        let date = new Date();
-
         let hourStorage = parseInt(localStorage.getItem("hour"));
-        let hourNow = date.getHours();
+        let hourNow = app.getHourNow();
+
+       
 
      
         
@@ -170,8 +168,7 @@ class App{
             }).then((json) =>{
             console.log(json);
 
-                let date = new Date();
-                let hour = date.getHours();
+                let hour = app.getHourNow();
                 
                 let textYoda = json.contents.translated;
 
@@ -190,10 +187,6 @@ class App{
             console.log("nieuwe tekst");
         }
 
-
-
-        
-
     }
 
 
@@ -206,22 +199,23 @@ class App{
 
         document.querySelector(".info").innerHTML = movie + " now streaming on Disney+";
         
-
-        
         
         if(temp < 15){
             document.querySelector("article").style.backgroundImage = "url(https://www.wallpapertip.com/wmimgs/3-36952_star-wars-wallpaper-hd-1080p-star-wars-planet.jpg)";
         }else{
             document.querySelector("article").style.backgroundImage = "url(https://images.theconversation.com/files/3624/original/tatooine.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop)";
-        
-
-    }
-
     
-
-    
+    } 
 
 }
+
+getHourNow(){
+    let date = new Date();
+    let hour = date.getHours();
+
+    return hour;
+}
+
 
 }
 

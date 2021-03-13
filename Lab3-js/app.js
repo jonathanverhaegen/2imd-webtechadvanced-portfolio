@@ -29,8 +29,12 @@ class Note {
     // this function should append the note to the screen somehow
     
     
+    let list = document.querySelector("#taskList");
+    let node = document.createTextNode(this.title);
+    let newNote = this.element;
     
-    
+    list.appendChild(newNote);
+    newNote.appendChild(node);
     
     
 
@@ -106,6 +110,8 @@ class App {
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
+
+
 
     
 

@@ -51,8 +51,7 @@ class App{
 
                 localStorage.clear();
 
-                let date = new Date();
-                let hour = date.getHours();
+                
                 let temp = Math.round(json.main.temp);
                 
     
@@ -170,6 +169,9 @@ class App{
             return response.json();
             }).then((json) =>{
             console.log(json);
+
+                let date = new Date();
+                let hour = date.getHours();
                 
                 let textYoda = json.contents.translated;
 

@@ -24,13 +24,13 @@ class Note {
     
   }
 
-  add() {
+  add(title) {
     // HINT🤩
     // this function should append the note to the screen somehow
     
     
     let list = document.querySelector("#taskList");
-    let node = document.createTextNode(this.title);
+    let node = document.createTextNode(title);
     let newNote = this.element;
     
     list.appendChild(newNote);
@@ -124,6 +124,18 @@ class App {
     // load all notes from storage here and add them to the screen
 
 
+    let arrayNotes = JSON.parse(localStorage.getItem("notes"));
+
+    
+
+
+    for(let i = 0; i<arrayNotes.length;i++){
+
+      let newNote = new Note(arrayNotes[i]);
+      newNote.add(newNote.title);
+
+    }
+
 
     
 
@@ -145,7 +157,7 @@ class App {
 
       let note = new Note(this.txtTodo.value);
 
-      note.add();
+      note.add(note.title);
       note.saveToStorage();
       
       this.reset();

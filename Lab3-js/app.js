@@ -94,21 +94,17 @@ class Note {
 
     let indexTitle = arrayNotes.indexOf(title);
 
-    console.log(indexTitle);
+    arrayNotes.splice(indexTitle, 1);
+
+    let jsonNotes = JSON.stringify(arrayNotes);
+    localStorage.setItem("notes", jsonNotes);
     
 
    
 
    
 
-    /*for(let i = 0; i<arrayNotes.length; i++){
-      
-
-      if(arrayNotes[i] == title ){
-        
-      }
-
-    }*/
+    
     
 
     

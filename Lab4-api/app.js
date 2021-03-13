@@ -36,8 +36,8 @@ class App{
         }).then((json) =>{
             let temp = Math.round(json.main.temp);
 
-            //localStorage.setItem("temp", temp);
-            app.textAd(temp);
+            localStorage.setItem("temp", temp);
+            app.textAd();
 
             
             
@@ -77,7 +77,7 @@ class App{
     textWeater(temp){
 
         
-
+               
         
 
         if(temp < 15){
@@ -85,7 +85,7 @@ class App{
            
             
 
-            let text = `Ooh it is ${temp} °c today. That is too cold. Stay inside and watch Star Wars `;
+            let text = `Ooh it is ${temp} °c today. That is too cold. Stay inside and watch Star Wars - `;
             return text;
             
             
@@ -94,7 +94,7 @@ class App{
 
            
 
-            let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch Star Wars `;
+            let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch Star Wars - `;
             
             return text
             
@@ -102,7 +102,10 @@ class App{
     }
 
 
-    textAd(temp){
+    textAd(){
+
+        let temp = parseInt(localStorage.getItem("temp"));
+
 
         let text = app.textWeater(temp);
 

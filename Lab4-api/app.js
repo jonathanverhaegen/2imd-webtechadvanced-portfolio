@@ -58,13 +58,13 @@ class App{
                 localStorage.setItem("temp", temp);
                 
                 app.textAd(); 
-                console.log("nieuw");
+                console.log("nieuw temp");
             })
 
         }else{
             
             app.textAd();
-            console.log("oud");
+            console.log("oude temp");
         }
         
 
@@ -162,7 +162,7 @@ class App{
      
         
 
-        if(localStorage.getItem("text") === null || hourNow < hourStorage){
+        if(localStorage.getItem("textYoda") === null || hourNow < hourStorage){
             fetch(url).then((response) =>{
             return response.json();
             }).then((json) =>{
@@ -178,13 +178,13 @@ class App{
         
                 app.showAd(movie,temp);
 
-                console.log("oude tekst");
+                console.log("nieuwe tekst");
             
 
             })
         }else{
             app.showAd(movie,temp);
-            console.log("nieuwe tekst");
+            console.log("oude tekst");
         }
 
     }

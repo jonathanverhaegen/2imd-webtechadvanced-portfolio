@@ -108,6 +108,8 @@ class App {
     // load all notes from storage here and add them to the screen
 
     
+
+    
    
 
   }
@@ -120,6 +122,17 @@ class App {
     // clear the text field with .reset in this class
     // if (e.key === "Enter")
 
+    if(e.key === "Enter"){
+      e.preventDefault();
+
+      let note = new Note(this.txtTodo.value);
+
+      note.add();
+      note.saveToStorage();
+      
+      this.reset();
+    }
+
     
     }
 
@@ -130,7 +143,7 @@ class App {
 
   reset() {
     // this function should reset the form / clear the text field
-    
+    this.txtTodo.value = "";
   }
 }
 

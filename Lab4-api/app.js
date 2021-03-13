@@ -29,46 +29,44 @@ class App{
 
         let key = "9cd9448ff8d4a9eacad8bf68ece69a39";
 
-        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}&units=metric`
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}&units=metric`;
 
-        fetch(url).then((response) =>{
-            return response.json();
-        }).then((json) =>{
-            let temp = Math.round(json.main.temp);
+        let date = new Date();
 
-            localStorage.setItem("temp", temp);
-            app.textAd();
+        let hourStorage = parseInt(localStorage.getItem("hour"));
+        let hourNow = date.getHours();
 
-            
-            
+        console.log(hourStorage);
+        console.log(hourNow);
 
-            
-        })
         
 
         
 
-        /*if(localStorage.getItem("temp") === null){
-
+        if(localStorage.getItem("temp") === null || hourStorage < hourNow){
 
             fetch(url).then((response) =>{
                 return response.json();
             }).then((json) =>{
-                let temp = Math.round(json.main.temp);
 
-                localStorage.setItem("temp", temp);
-                app.textAd(temp);
+                localStorage.clear();
+
+                let date = new Date();
+                let hour = date.getHours();
+                let temp = Math.round(json.main.temp);
                 
     
-                
+                localStorage.setItem("temp", temp);
+                localStorage.setItem("hour", hour);
+                app.textAd(); 
+                console.log("nieuw");
             })
 
-            
         }else{
-            let temp = localStorage.getItem("temp");
-            app.textAd(temp);
-        }*/
-
+            
+            app.textAd();
+            console.log("oud");
+        }
         
 
     }

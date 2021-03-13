@@ -107,6 +107,7 @@ class App {
     this.txtTodo = document.querySelector("#taskInput");
     this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
     this.loadNotesFromStorage();
+    
 
     
 
@@ -124,17 +125,22 @@ class App {
     // load all notes from storage here and add them to the screen
 
 
-    let arrayNotes = JSON.parse(localStorage.getItem("notes"));
+    if(localStorage.getItem("notes") != null){
+      let arrayNotes = JSON.parse(localStorage.getItem("notes"));
+
+      for(let i = 0; i<arrayNotes.length;i++){
+
+        let newNote = new Note(arrayNotes[i]);
+        newNote.add(newNote.title);
+  
+      }
+
+    }
+
 
     
 
-
-    for(let i = 0; i<arrayNotes.length;i++){
-
-      let newNote = new Note(arrayNotes[i]);
-      newNote.add(newNote.title);
-
-    }
+    
 
 
     

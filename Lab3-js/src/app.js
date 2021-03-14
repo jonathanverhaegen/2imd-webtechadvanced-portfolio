@@ -5,10 +5,6 @@ class Note {
 
     this.title = title;
     this.element = this.createElement(title);
-
-    
-
-    
     
   }
 
@@ -35,15 +31,6 @@ class Note {
     
     list.appendChild(newNote);
     newNote.appendChild(node);
-    
-    
-
-
-    
-    
-    
-   
-    
 
   }
 
@@ -65,9 +52,6 @@ class Note {
 
     }
     
-    
-
-    
   }
 
   remove() {
@@ -82,9 +66,6 @@ class Note {
 
     list.removeChild(this);
     
-
-
-
     //remove from localStorage
 
     let arrayNotes = JSON.parse(localStorage.getItem("notes"));
@@ -98,18 +79,6 @@ class Note {
 
     let jsonNotes = JSON.stringify(arrayNotes);
     localStorage.setItem("notes", jsonNotes);
-    
-
-   
-
-   
-
-    
-    
-
-    
-    
-
     
   }
 }
@@ -130,16 +99,6 @@ class App {
     this.txtTodo = document.querySelector("#taskInput");
     this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
     this.loadNotesFromStorage();
-    
-
-    
-
-    
-
-
-    
-
-
 
   }
 
@@ -159,16 +118,6 @@ class App {
       }
 
     }
-
-
-    
-
-    
-
-
-    
-
-    
    
 
   }
@@ -192,13 +141,9 @@ class App {
       this.reset();
     }
 
-    
     }
 
-   
 
-
-  
 
   reset() {
     // this function should reset the form / clear the text field

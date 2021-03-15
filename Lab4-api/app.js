@@ -1,7 +1,6 @@
 class App{
     constructor(){
         
-        
         this.getLocation();
         
 
@@ -11,15 +10,12 @@ class App{
     getLocation(){
         navigator.geolocation.getCurrentPosition(this.succes);
 
-        
     }
 
     succes(pos){
         
         let lat = pos.coords.latitude;
         let lng = pos.coords.longitude;
-
-        
 
         app.getWeather(lat,lng);
         
@@ -31,17 +27,12 @@ class App{
 
         let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${key}&units=metric`;
 
-        
-
+    
         let hourStorage = parseInt(localStorage.getItem("hour"));
         let hourNow = app.getHourNow();
 
-        console.log(hourStorage);
-        console.log(hourNow);
+    
 
-        
-
-        
 
         if(localStorage.getItem("temp") === null || hourStorage < hourNow){
 
@@ -53,45 +44,36 @@ class App{
 
                 
                 let temp = Math.round(json.main.temp);
+
+                console.log(temp);
                 
     
                 localStorage.setItem("temp", temp);
                 
                 app.textAd(); 
-                console.log("nieuw temp");
+                
             })
 
         }else{
             
             app.textAd();
-            console.log("oude temp");
+            
         }
         
-
     }
 
 
     textWeater(temp){
 
         
-               
-        
-
         if(temp < 15){
 
-           
-            
-
-            let text = `Ooh it is ${temp} °c today. That is too cold. Stay inside and watch Star Wars`;
+            let text = `Ooh it is ${temp}°c today. That is too cold. Stay inside and watch Star Wars`;
             return text;
-            
-            
             
         }else{
 
-           
-
-            let text = `Ooh it is ${temp} °c today. That is too warm. Stay inside and watch Star Wars`;
+            let text = `Ooh it is ${temp}°c today. That is too warm. Stay inside and watch Star Wars`;
             
             return text
             
@@ -103,15 +85,8 @@ class App{
 
         let temp = parseInt(localStorage.getItem("temp"));
 
-       
-
-
+        //let temp = 25;
         let text = app.textWeater(temp);
-
-
-        
-
-        
 
         app.getMovie(text,temp);
 
@@ -120,8 +95,6 @@ class App{
     }
 
     
-
-
     //functie voor film op te vragen
 
     getMovie(text,temp){
@@ -136,16 +109,11 @@ class App{
             
             let movie = json.title;
 
-            
-            
-
             app.translateYoda(text, movie,temp);
             
 
         })
-        
-
-        
+    
     }
 
 
@@ -157,10 +125,6 @@ class App{
         let hourStorage = parseInt(localStorage.getItem("hour"));
         let hourNow = app.getHourNow();
 
-       
-
-     
-        
 
         if(localStorage.getItem("textYoda") === null || hourNow < hourStorage){
             fetch(url).then((response) =>{
@@ -177,18 +141,13 @@ class App{
            
         
                 app.showAd(movie,temp);
-
-                console.log("nieuwe tekst");
-            
-
             })
         }else{
             app.showAd(movie,temp);
-            console.log("oude tekst");
+            
         }
 
     }
-
 
 
     showAd(movie,temp){
@@ -204,7 +163,7 @@ class App{
             document.querySelector("article").style.backgroundImage = "url(https://www.wallpapertip.com/wmimgs/3-36952_star-wars-wallpaper-hd-1080p-star-wars-planet.jpg)";
         }else{
             document.querySelector("article").style.backgroundImage = "url(https://images.theconversation.com/files/3624/original/tatooine.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop)";
-    
+            
     } 
 
 }
@@ -215,7 +174,6 @@ getHourNow(){
 
     return hour;
 }
-
 
 }
 

@@ -13,9 +13,7 @@ function getOne(req,res){
     let id = req.params.id;
 
   res.json({
-    "from": "jonathan",
-    "to": "s1mple",
-    "message": `juu de s1mple ${id}`,
+    "message": `GETTING message with ID ${id}`,
   });
 };
 

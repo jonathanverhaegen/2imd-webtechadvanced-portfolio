@@ -10,6 +10,8 @@ router.get("/", controllerMessage.getAll);
 
 router.put("/:id", controllerMessage.update);
 
+router.delete("/:id", controllerMessage.deleteOne);
+
 
 
 

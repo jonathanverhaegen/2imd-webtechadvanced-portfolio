@@ -1,8 +1,7 @@
 function store(req, res){
     
     res.json({
-      "status": "succes",
-      "message": "was posted",
+      "message": "POSTING a new message for user Pikachu",
     });
 
 }

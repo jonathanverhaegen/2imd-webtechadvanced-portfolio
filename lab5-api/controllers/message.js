@@ -98,7 +98,6 @@ function update(req,res){
             })
         }
     })
-
 }
 
 function deleteOne(req,res){

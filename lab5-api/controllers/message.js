@@ -20,9 +20,20 @@ function store(req, res){
 function getOne(req,res){
     let id = req.params.id;
 
-  res.json({
+    Message.findById(id, (err, doc)=>{
+        if(!err){
+            res.json({
+                "status": "succes",
+                "data":{
+                    "message": doc
+                }
+            })
+        }
+    })
+
+ /* res.json({
     "message": `GETTING message with ID ${id}`,
-  });
+  });*/
 };
 
 

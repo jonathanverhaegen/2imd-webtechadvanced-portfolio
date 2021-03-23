@@ -1,8 +1,16 @@
+const Message = require("../models/message");
+
 function store(req, res){
 
-    let username = "jonathan"
-    res.json({
-      "message": `POSTING a new message for user ${username}`,
+    let username = "Pikachu"
+    let message = "nodejs isn’t hard, or is it?"
+
+    let m = new Message();
+    m.user = username;
+    m.text = message;
+
+    m.save((err, doc) => {
+        res.json(doc);
     });
 
 }

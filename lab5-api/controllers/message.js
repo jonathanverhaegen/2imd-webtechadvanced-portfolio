@@ -19,5 +19,14 @@ function getOne(req,res){
   });
 };
 
+
+function getAll(req,res){
+    res.json({
+        "message": "GETTING messages",
+    })
+}
+
+
 module.exports.store = store;
 module.exports.getOne = getOne;
+module.exports.getAll = getAll;

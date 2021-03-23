@@ -6,6 +6,8 @@ router.post('/', controllerMessage.store);
 
 router.get("/:id", controllerMessage.getOne);
 
+router.get("/", controllerMessage.getAll);
+
 
 
 module.exports = router;

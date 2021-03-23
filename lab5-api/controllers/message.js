@@ -10,7 +10,7 @@ function store(req, res){
     m.text = message;
 
     m.save((err, doc) => {
-        if($err){
+        if(!err){
             res.json({
                 "status": "succes",
                 "data":{
@@ -83,9 +83,25 @@ function getAll(req,res){
 
 function update(req,res){
     let id = req.params.id;
-    res.json({
-        "message": `UPDATING a message with id ${id}`
+
+    let change = req.query;
+
+    console.log(req.query);
+
+    Message.findByIdAndUpdate(id,change,(err,doc)=>{
+        if(!err){
+            res.json({
+                "status": "succes",
+                "data":{
+                    "message": doc
+                }
+            })
+        }
     })
+
+    /*res.json({
+        "message": `UPDATING a message with id ${id}`
+    })*/
 }
 
 function deleteOne(req,res){

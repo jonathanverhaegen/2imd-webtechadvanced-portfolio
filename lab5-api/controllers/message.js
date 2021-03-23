@@ -10,7 +10,14 @@ function store(req, res){
     m.text = message;
 
     m.save((err, doc) => {
-        res.json(doc);
+        if($err){
+            res.json({
+                "status": "succes",
+                "data":{
+                    "message": doc
+                }
+            })
+        }
     });
 
 }
@@ -83,8 +90,14 @@ function update(req,res){
 
 function deleteOne(req,res){
     let id = req.params.id;
-    res.json({
-        "message": `DELETING a message with id ${id}`
+    
+    Message.deleteOne({_id: id},(err,doc)=>{
+        if(!err){
+            res.json({
+                "status": "succes",
+                "message": "the message was removed"
+            })
+        }
     })
 }
 

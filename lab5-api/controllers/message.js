@@ -1,7 +1,8 @@
 function store(req, res){
-    
+
+    let username = "jonathan"
     res.json({
-      "message": "POSTING a new message for user Pikachu",
+      "message": `POSTING a new message for user ${username}`,
     });
 
 }
@@ -18,10 +19,23 @@ function getOne(req,res){
 
 
 function getAll(req,res){
-    res.json({
-        "message": "GETTING messages",
-    })
+
+    let user = req.query.user;
+
+    if(user != null){
+        res.json({
+            "message": `GETTING messages by ${user}`
+        })
+    }else{
+        res.json({
+            "message": "GETTING messages",
+        })
+    }
+
+    
+    
 }
+
 
 function update(req,res){
     let id = req.params.id;
@@ -41,5 +55,6 @@ function deleteOne(req,res){
 module.exports.store = store;
 module.exports.getOne = getOne;
 module.exports.getAll = getAll;
+
 module.exports.update = update;
 module.exports.deleteOne = deleteOne;

@@ -1,21 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const controllerMessage = require("../controllers/message");
 
-router.post('/', (req,res) => {
-  res.json({
-    "status": "succes",
-    "message": "was posted",
-  });
-});
+router.post('/', controllerMessage.store);
 
-router.get('/:id', (req, res) => {
-  let id = req.params.id;
+router.get("/:id", controllerMessage.getOne);
 
-  res.json({
-    "from": "jonathan",
-    "to": "s1mple",
-    "message": `juu de s1mple ${id}`,
-  })
-})
+
 
 module.exports = router;

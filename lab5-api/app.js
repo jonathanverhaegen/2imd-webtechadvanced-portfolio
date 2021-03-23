@@ -3,6 +3,9 @@ const app = express()
 const port = 3000
 const routerMessages = require("./routers/messages");
 const pug = require("pug");
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/lab5', {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.set("view engine", "pug");
 

@@ -88,7 +88,7 @@ function update(req,res){
 
     console.log(req.query);
 
-    Message.findByIdAndUpdate(id,change,(err,doc)=>{
+    Message.findByIdAndUpdate(id,{change},(err,doc)=>{
         if(!err){
             res.json({
                 "status": "succes",
@@ -99,9 +99,6 @@ function update(req,res){
         }
     })
 
-    /*res.json({
-        "message": `UPDATING a message with id ${id}`
-    })*/
 }
 
 function deleteOne(req,res){
@@ -121,6 +118,5 @@ function deleteOne(req,res){
 module.exports.store = store;
 module.exports.getOne = getOne;
 module.exports.getAll = getAll;
-
 module.exports.update = update;
 module.exports.deleteOne = deleteOne;

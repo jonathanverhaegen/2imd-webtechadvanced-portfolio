@@ -6,11 +6,20 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/api/messages', (req, res) => {
+app.post('/api/messages', (req,res) => {
+  res.json({
+    "status": "succes",
+    "message": "was posted",
+  });
+});
+
+app.get('/api/messages/:id', (req, res) => {
+  let id = req.params.id;
+
   res.json({
     "from": "jonathan",
     "to": "s1mple",
-    "message": "juu de s1mple",
+    "message": `juu de s1mple ${id}`,
   })
 })
 

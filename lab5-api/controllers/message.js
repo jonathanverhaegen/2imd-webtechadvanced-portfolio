@@ -30,14 +30,25 @@ function getAll(req,res){
 
     let user = req.query.user;
 
+    
+
     if(user != null){
         res.json({
             "message": `GETTING messages by ${user}`
         })
     }else{
-        res.json({
-            "message": "GETTING messages",
-        })
+
+        Message.find((err,doc)=>{
+            if(!err){
+                res.json({
+                    "status": "succes",
+                    "data": {
+                        "message": doc
+                    }
+                });
+            }
+        });
+        
     }
 
     

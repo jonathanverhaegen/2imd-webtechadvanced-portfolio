@@ -86,9 +86,9 @@ function update(req,res){
 
     let change = req.query;
 
-    console.log(req.query);
+    console.log(change);
 
-    Message.findByIdAndUpdate(id,{change},(err,doc)=>{
+    Message.findByIdAndUpdate(id,change,(err,doc)=>{
         if(!err){
             res.json({
                 "status": "succes",

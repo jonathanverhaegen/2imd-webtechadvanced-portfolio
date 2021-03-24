@@ -2,8 +2,8 @@ const Message = require("../../../models/messages");
 
 function store(req, res){
 
-    let username = "Pikachu"
-    let message = "nodejs isn’t hard, or is it?"
+    let username = req.query.user;
+    let message = req.query.text;
 
     let m = new Message();
     m.user = username;
